@@ -1,46 +1,134 @@
-# Getting Started with Create React App
+# Noroff eCom Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern e-commerce application built with React, TypeScript, and Styled Components as part of the JavaScript Frameworks course assignment.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Product Catalog** - Browse all products with images, pricing, and ratings
+- **Search & Filter** - Look-ahead search to find products quickly
+- **Sort Functionality** - Sort products by name or price
+- **Product Details** - View detailed product information, reviews, and tags
+- **Shopping Cart** - Add products, manage quantities, and view cart total
+- **Persistent Cart** - Cart state saved to localStorage
+- **Checkout Flow** - Complete checkout with success confirmation
+- **Contact Form** - Validated contact form with react-hook-form
+- **Toast Notifications** - Real-time user feedback
+- **Responsive Design** - Works seamlessly on all devices
+- **Fully Typed** - Built with TypeScript for type safety
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React 19** - UI library
+- **TypeScript** - Type-safe JavaScript
+- **Styled Components** - CSS-in-JS styling with theming
+- **React Router** - Client-side routing
+- **React Hook Form** - Form validation
+- **React Hot Toast** - Toast notifications
+- **React Testing Library** - Component testing
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📁 Project Structure
 
-### `npm test`
+```
+src/
+├── components/       # Reusable UI components
+├── pages/           # Page components
+├── context/         # React Context (cart state)
+├── hooks/           # Custom React hooks
+├── types/           # TypeScript type definitions
+├── styles/          # Global styles and theme
+└── utils/           # Helper functions and API calls
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔗 API
 
-### `npm run build`
+This project uses the [Noroff Online Shop API](https://docs.noroff.dev/docs/v2/basic/online-shop)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Base URL:** `https://v2.api.noroff.dev/online-shop`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚦 Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js (v16 or higher)
+- npm
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository
+```bash
+git clone https://github.com/NoroffFEU/jsfw-2025-v1-ddyrnes-jsfw.git
+cd jsfw-2025-v1-ddyrnes-jsfw
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. Install dependencies
+```bash
+npm install --legacy-peer-deps
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3. Start the development server
+```bash
+npm start
+```
 
-## Learn More
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧪 Testing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Run tests with:
+```bash
+npm test
+```
+
+## 📦 Build
+
+Create a production build:
+```bash
+npm run build
+```
+
+## 🌐 Deployment
+
+This project is deployed on Netlify.
+
+**Live Demo:** [Coming soon]
+
+## 📝 Assignment Requirements
+
+This project fulfills all requirements for the JavaScript Frameworks Course Assignment:
+
+- ✅ Homepage with product list and look-ahead search
+- ✅ Individual product pages with dynamic routing
+- ✅ Shopping cart with add/remove functionality
+- ✅ Cart icon displaying item count
+- ✅ Checkout page with total calculation
+- ✅ Checkout success page with cart clearing
+- ✅ Contact form with validation
+- ✅ Layout component with Header and Footer
+- ✅ React Router for navigation
+- ✅ Responsive design
+- ✅ Clean, well-formatted code
+- ✅ No console errors
+
+## 👨‍💻 Development
+
+### Git Workflow
+
+- `main` - Production-ready code
+- `dev` - Development branch
+- `feature/*` - Feature branches
+
+### Code Style
+
+- Components in individual folders with `index.tsx`
+- Styled components in separate `.styles.ts` files
+- TypeScript interfaces prefixed with `I`
+- Strict TypeScript mode enabled
+
+## 📄 License
+
+This project is part of a school assignment for Noroff.
+
+## 🙏 Acknowledgments
+
+- Noroff School of Technology and Digital Media
+- [Noroff API Documentation](https://docs.noroff.dev/)
