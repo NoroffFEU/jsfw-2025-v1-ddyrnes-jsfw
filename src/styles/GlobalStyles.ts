@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 /**
  * Global styles applied to the entire application
@@ -30,15 +30,15 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    font-size: ${({ theme }) => theme.typography.fontSize['4xl']};
+    font-size: ${({ theme }) => theme.typography.fontSize["4xl"]};
   }
 
   h2 {
-    font-size: ${({ theme }) => theme.typography.fontSize['3xl']};
+    font-size: ${({ theme }) => theme.typography.fontSize["3xl"]};
   }
 
   h3 {
-    font-size: ${({ theme }) => theme.typography.fontSize['2xl']};
+    font-size: ${({ theme }) => theme.typography.fontSize["2xl"]};
   }
 
   a {
