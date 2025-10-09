@@ -6,6 +6,17 @@ export const HeaderWrapper = styled.header`
   color: white;
   padding: ${({ theme }) => theme.spacing.lg} ${({ theme }) => theme.spacing.xl};
   box-shadow: ${({ theme }) => theme.shadows.md};
+
+  /* Tablet */
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: ${({ theme }) => theme.spacing.md}
+      ${({ theme }) => theme.spacing.lg};
+  }
+
+  /* Mobile */
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: ${({ theme }) => theme.spacing.md};
+  }
 `;
 
 export const HeaderContainer = styled.div`
@@ -26,12 +37,22 @@ export const Logo = styled(Link)`
     color: white;
     opacity: 0.9;
   }
+
+  /* Mobile */
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: ${({ theme }) => theme.typography.fontSize.xl};
+  }
 `;
 
 export const Nav = styled.nav`
   display: flex;
   gap: ${({ theme }) => theme.spacing.lg};
   align-items: center;
+
+  /* Mobile */
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: ${({ theme }) => theme.spacing.sm};
+  }
 `;
 
 export const NavLink = styled(Link)`
@@ -45,5 +66,11 @@ export const NavLink = styled(Link)`
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
+  }
+
+  /* Mobile */
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: ${({ theme }) => theme.spacing.sm};
+    font-size: ${({ theme }) => theme.typography.fontSize.sm};
   }
 `;
