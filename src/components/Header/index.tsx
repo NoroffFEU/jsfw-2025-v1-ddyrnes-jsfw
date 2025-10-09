@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./Header.styles";
+import CartIcon from "../CartIcon";
 
 function Header() {
   return (
@@ -9,7 +10,7 @@ function Header() {
         <S.Nav>
           <S.NavLink to="/">Home</S.NavLink>
           <S.NavLink to="/contact">Contact</S.NavLink>
-          <S.NavLink to="/cart">Cart (0)</S.NavLink>
+          <CartIcon count={0} />
         </S.Nav>
       </S.HeaderContainer>
     </S.HeaderWrapper>
