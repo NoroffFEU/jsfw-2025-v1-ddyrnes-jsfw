@@ -1,12 +1,11 @@
 import React from "react";
 import * as S from "./CartIcon.styles";
 import cartIcon from "../../assets/icons/shopping-cart.png";
+import { useCart } from "../../hooks/useCart";
 
-interface ICartIcon {
-  count?: number;
-}
+function CartIcon() {
+  const { totalItems } = useCart();
 
-function CartIcon({ count = 0 }: ICartIcon) {
   return (
     <S.CartLink to="/cart">
       <img
@@ -18,7 +17,7 @@ function CartIcon({ count = 0 }: ICartIcon) {
           filter: "brightness(0) invert(1)",
         }}
       />
-      Cart ({count})
+      Cart ({totalItems})
     </S.CartLink>
   );
 }

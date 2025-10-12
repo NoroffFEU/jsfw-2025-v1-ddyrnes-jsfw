@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import * as S from "./ProductDetailPage.styles";
 import { Product } from "../../types/api.types";
 import { fetchProductById } from "../../utils/api";
 import { hasDiscount, calculateDiscountPercentage } from "../../utils/helpers";
+import { useCart } from "../../hooks/useCart";
 
 function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { addToCart } = useCart();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -104,8 +107,13 @@ function ProductDetailPage() {
             </S.TagsWrapper>
           )}
 
-          <S.AddToCartButton disabled>
-            Add to Cart (Coming Soon)
+          <S.AddToCartButton
+            onClick={() => {
+              addToCart(product);
+              toast.success(`${product.title} added to cart!`);
+            }}
+          >
+            Add to Cart
           </S.AddToCartButton>
         </S.InfoSection>
       </S.ProductWrapper>

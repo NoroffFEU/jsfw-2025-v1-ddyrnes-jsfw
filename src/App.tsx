@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import ContactPage from "./pages/ContactPage";
 import CartPage from "./pages/CartPage";
+import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="product/:id" element={<ProductDetailPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="cart" element={<CartPage />} />
+        <Route path="checkout-success" element={<CheckoutSuccessPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

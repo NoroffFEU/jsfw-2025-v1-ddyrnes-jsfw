@@ -10,7 +10,7 @@ function Header() {
         <S.Nav>
           <S.NavLink to="/">Home</S.NavLink>
           <S.NavLink to="/contact">Contact</S.NavLink>
-          <CartIcon count={0} />
+          <CartIcon />
         </S.Nav>
       </S.HeaderContainer>
     </S.HeaderWrapper>
