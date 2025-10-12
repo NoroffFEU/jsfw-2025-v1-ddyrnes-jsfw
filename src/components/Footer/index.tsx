@@ -5,7 +5,9 @@ function Footer() {
   return (
     <S.FooterWrapper>
       <S.FooterContainer>
-        <S.FooterText>© 2025 Noroff Shop. All rights reserved.</S.FooterText>
+        <S.FooterText>
+          © {new Date().getFullYear()} Noroff Shop. Developed by Daniel Dyrnes.
+        </S.FooterText>
       </S.FooterContainer>
     </S.FooterWrapper>
   );
