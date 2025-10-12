@@ -8,6 +8,8 @@ function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [sortOption, setSortOption] = useState<string>("default");
 
   useEffect(() => {
     async function loadProducts() {
@@ -26,6 +28,27 @@ function HomePage() {
 
     loadProducts();
   }, []);
+
+  // Filter products by search query
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Sort products based on selected option
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    switch (sortOption) {
+      case "name-asc":
+        return a.title.localeCompare(b.title);
+      case "name-desc":
+        return b.title.localeCompare(a.title);
+      case "price-asc":
+        return a.discountedPrice - b.discountedPrice;
+      case "price-desc":
+        return b.discountedPrice - a.discountedPrice;
+      default:
+        return 0;
+    }
+  });
 
   if (loading) {
     return (
@@ -51,15 +74,48 @@ function HomePage() {
       <S.Header>
         <S.Title>Welcome to Noroff Shop</S.Title>
         <S.Subtitle>Discover amazing products at great prices!</S.Subtitle>
-        <S.ControlsPlaceholder>
-          🔍 Search & Sort controls will go here (coming soon!)
-        </S.ControlsPlaceholder>
+
+        <S.ControlsWrapper>
+          <S.SearchWrapper>
+            <S.SearchInput
+              type="text"
+              placeholder="🔍 Search products..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="Search products"
+            />
+          </S.SearchWrapper>
+
+          <S.SortWrapper>
+            <S.SortSelect
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value)}
+              aria-label="Sort products"
+            >
+              <option value="default">Sort by...</option>
+              <option value="name-asc">Name (A-Z)</option>
+              <option value="name-desc">Name (Z-A)</option>
+              <option value="price-asc">Price (Low to High)</option>
+              <option value="price-desc">Price (High to Low)</option>
+            </S.SortSelect>
+          </S.SortWrapper>
+        </S.ControlsWrapper>
+
+        <S.ResultsCount>
+          Showing {sortedProducts.length} of {products.length} products
+        </S.ResultsCount>
       </S.Header>
 
       <S.ProductGrid>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        {sortedProducts.length > 0 ? (
+          sortedProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        ) : (
+          <S.ErrorMessage>
+            No products found matching "{searchQuery}"
+          </S.ErrorMessage>
+        )}
       </S.ProductGrid>
     </S.Container>
   );

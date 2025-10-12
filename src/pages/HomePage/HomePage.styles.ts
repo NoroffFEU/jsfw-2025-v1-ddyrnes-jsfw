@@ -26,13 +26,70 @@ export const Subtitle = styled.p`
   margin: 0;
 `;
 
-export const ControlsPlaceholder = styled.div`
+export const ControlsWrapper = styled.div`
   margin-top: ${({ theme }) => theme.spacing.lg};
+  display: flex;
+  gap: ${({ theme }) => theme.spacing.md};
+  flex-wrap: wrap;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+  }
+`;
+
+export const SearchWrapper = styled.div`
+  flex: 1;
+  min-width: 250px;
+`;
+
+export const SearchInput = styled.input`
+  width: 100%;
   padding: ${({ theme }) => theme.spacing.md};
-  background: ${({ theme }) => theme.colors.backgroundAlt};
-  border: 2px dashed ${({ theme }) => theme.colors.border};
+  font-size: ${({ theme }) => theme.typography.fontSize.base};
+  border: 2px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  text-align: center;
+  background-color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: ${({ theme }) => theme.colors.primary};
+  }
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.textSecondary};
+    opacity: 0.6;
+  }
+`;
+
+export const SortWrapper = styled.div`
+  min-width: 200px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 100%;
+  }
+`;
+
+export const SortSelect = styled.select`
+  width: 100%;
+  padding: ${({ theme }) => theme.spacing.md};
+  font-size: ${({ theme }) => theme.typography.fontSize.base};
+  border: 2px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  background-color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: ${({ theme }) => theme.colors.primary};
+  }
+`;
+
+export const ResultsCount = styled.p`
+  margin-top: ${({ theme }) => theme.spacing.md};
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
 `;
