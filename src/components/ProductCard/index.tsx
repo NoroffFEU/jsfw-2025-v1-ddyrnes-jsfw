@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./ProductCard.styles";
 import { Product } from "../../types/api.types";
 import { hasDiscount, calculateDiscountPercentage } from "../../utils/helpers";
+import RatingStars from "../RatingStars";
 
 interface IProductCard {
   product: Product;
@@ -34,7 +35,11 @@ function ProductCard({ product }: IProductCard) {
             <S.OriginalPrice>{product.price.toFixed(2)} kr</S.OriginalPrice>
           )}
         </S.PriceWrapper>
-        <S.Rating>⭐ {product.rating.toFixed(1)}</S.Rating>
+        <RatingStars
+          rating={product.rating}
+          size={14}
+          reviewCount={product.reviews.length}
+        />
       </S.Content>
     </S.Card>
   );

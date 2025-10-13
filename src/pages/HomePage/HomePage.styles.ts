@@ -40,11 +40,25 @@ export const ControlsWrapper = styled.div`
 export const SearchWrapper = styled.div`
   flex: 1;
   min-width: 250px;
+  position: relative;
+`;
+
+export const SearchIconWrapper = styled.div`
+  position: absolute;
+  left: ${({ theme }) => theme.spacing.md};
+  top: 50%;
+  transform: translateY(-50%);
+  color: ${({ theme }) => theme.colors.textSecondary};
+  display: flex;
+  align-items: center;
+  pointer-events: none;
 `;
 
 export const SearchInput = styled.input`
   width: 100%;
-  padding: ${({ theme }) => theme.spacing.md};
+  padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.md}
+    ${({ theme }) => theme.spacing.md}
+    calc(${({ theme }) => theme.spacing.md} * 3);
   font-size: ${({ theme }) => theme.typography.fontSize.base};
   border: 2px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.borderRadius.md};

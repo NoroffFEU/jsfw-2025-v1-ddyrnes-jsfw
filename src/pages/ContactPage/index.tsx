@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { CheckCircle } from "lucide-react";
 import * as S from "./ContactPage.styles";
 
 interface IFormInputs {
@@ -40,7 +41,8 @@ function ContactPage() {
 
       {isSubmitted && (
         <S.SuccessMessage>
-          ✅ Thank you! Your message has been sent successfully.
+          <CheckCircle size={20} />
+          Thank you! Your message has been sent successfully.
         </S.SuccessMessage>
       )}
 

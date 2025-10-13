@@ -17,8 +17,10 @@ export const Container = styled.div`
 `;
 
 export const SuccessIcon = styled.div`
-  font-size: 5rem;
+  color: ${({ theme }) => theme.colors.success};
   margin-bottom: ${({ theme }) => theme.spacing.xl};
+  display: flex;
+  justify-content: center;
   animation: scaleIn 0.5s ease-out;
 
   @keyframes scaleIn {
@@ -78,7 +80,20 @@ export const SummaryTitle = styled.h2`
 export const SummaryText = styled.p`
   font-size: ${({ theme }) => theme.typography.fontSize.base};
   color: ${({ theme }) => theme.colors.textSecondary};
-  margin-bottom: ${({ theme }) => theme.spacing.sm};
+  margin-bottom: ${({ theme }) => theme.spacing.md};
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.sm};
+  text-align: left;
+
+  svg {
+    flex-shrink: 0;
+    color: ${({ theme }) => theme.colors.primary};
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const HomeButton = styled(Link)`

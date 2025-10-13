@@ -6,6 +6,7 @@ import { Product } from "../../types/api.types";
 import { fetchProductById } from "../../utils/api";
 import { hasDiscount, calculateDiscountPercentage } from "../../utils/helpers";
 import { useCart } from "../../hooks/useCart";
+import RatingStars from "../../components/RatingStars";
 
 function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -86,7 +87,11 @@ function ProductDetailPage() {
         <S.InfoSection>
           <S.Title>{product.title}</S.Title>
 
-          <S.Rating>⭐ {product.rating.toFixed(1)} / 5.0</S.Rating>
+          <RatingStars
+            rating={product.rating}
+            size={18}
+            reviewCount={product.reviews.length}
+          />
 
           <S.PriceWrapper>
             <S.Price $isDiscounted={showDiscount}>
@@ -128,7 +133,14 @@ function ProductDetailPage() {
               <S.ReviewCard key={review.id}>
                 <S.ReviewHeader>
                   <S.ReviewUsername>{review.username}</S.ReviewUsername>
-                  <S.ReviewRating>⭐ {review.rating} / 5</S.ReviewRating>
+                  <S.ReviewRating>
+                    <RatingStars
+                      rating={review.rating}
+                      size={14}
+                      showNumber={false}
+                    />
+                    <S.ReviewRatingText>{review.rating} / 5</S.ReviewRatingText>
+                  </S.ReviewRating>
                 </S.ReviewHeader>
                 <S.ReviewText>{review.description}</S.ReviewText>
               </S.ReviewCard>

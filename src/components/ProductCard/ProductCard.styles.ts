@@ -83,8 +83,3 @@ export const OriginalPrice = styled.span`
   color: ${({ theme }) => theme.colors.textSecondary};
   text-decoration: line-through;
 `;
-
-export const Rating = styled.div`
-  font-size: ${({ theme }) => theme.typography.fontSize.sm};
-  color: ${({ theme }) => theme.colors.textSecondary};
-`;

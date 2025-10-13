@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Search } from "lucide-react";
 import * as S from "./HomePage.styles";
 import { Product } from "../../types/api.types";
 import { fetchProducts } from "../../utils/api";
@@ -77,9 +78,12 @@ function HomePage() {
 
         <S.ControlsWrapper>
           <S.SearchWrapper>
+            <S.SearchIconWrapper>
+              <Search size={18} />
+            </S.SearchIconWrapper>
             <S.SearchInput
               type="text"
-              placeholder="🔍 Search products..."
+              placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               aria-label="Search products"

@@ -150,4 +150,8 @@ export const SuccessMessage = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.lg};
   text-align: center;
   font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing.sm};
 `;

@@ -87,14 +87,6 @@ export const Title = styled.h1`
   }
 `;
 
-export const Rating = styled.div`
-  display: flex;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing.sm};
-  font-size: ${({ theme }) => theme.typography.fontSize.lg};
-  color: ${({ theme }) => theme.colors.textSecondary};
-`;
-
 export const PriceWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -197,8 +189,15 @@ export const ReviewUsername = styled.span`
   color: ${({ theme }) => theme.colors.text};
 `;
 
-export const ReviewRating = styled.span`
+export const ReviewRating = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.xs};
+`;
+
+export const ReviewRatingText = styled.span`
   color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
 `;
 
 export const ReviewText = styled.p`
