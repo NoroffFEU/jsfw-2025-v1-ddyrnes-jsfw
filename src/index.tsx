@@ -21,11 +21,13 @@ root.render(
           <Toaster
             position="top-right"
             containerStyle={{
-              top: "75px",
-              right: "max(16px, calc((100vw - 1280px) / 2 + 16px))",
+              top: "90px",
             }}
             toastOptions={{
               duration: 2000,
+              style: {
+                marginTop: "10px",
+              },
             }}
           />
           <App />

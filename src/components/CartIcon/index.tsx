@@ -9,7 +9,8 @@ function CartIcon() {
   return (
     <S.CartLink to="/cart">
       <ShoppingCart size={20} />
-      Cart ({totalItems})
+      <S.CartText>Cart</S.CartText>
+      <S.CartBadge>{totalItems}</S.CartBadge>
     </S.CartLink>
   );
 }

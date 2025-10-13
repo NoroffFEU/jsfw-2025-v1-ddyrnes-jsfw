@@ -1,18 +1,29 @@
 import React from "react";
+import { ShoppingCart } from "lucide-react";
+import toast from "react-hot-toast";
 import * as S from "./ProductCard.styles";
 import { Product } from "../../types/api.types";
 import { hasDiscount, calculateDiscountPercentage } from "../../utils/helpers";
 import RatingStars from "../RatingStars";
+import { useCart } from "../../hooks/useCart";
 
 interface IProductCard {
   product: Product;
 }
 
 function ProductCard({ product }: IProductCard) {
+  const { addToCart } = useCart();
   const showDiscount = hasDiscount(product.price, product.discountedPrice);
   const discountPercentage = showDiscount
     ? calculateDiscountPercentage(product.price, product.discountedPrice)
     : 0;
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent card navigation
+    e.stopPropagation(); // Stop event bubbling
+    addToCart(product);
+    toast.success(`${product.title} added to cart!`);
+  };
 
   return (
     <S.Card to={`/product/${product.id}`}>
@@ -40,6 +51,15 @@ function ProductCard({ product }: IProductCard) {
           size={14}
           reviewCount={product.reviews.length}
         />
+        <S.ButtonGroup>
+          <S.AddToCartButton onClick={handleAddToCart}>
+            <ShoppingCart size={16} />
+            Add to Cart
+          </S.AddToCartButton>
+          <S.ViewProductButton to={`/product/${product.id}`}>
+            View Product
+          </S.ViewProductButton>
+        </S.ButtonGroup>
       </S.Content>
     </S.Card>
   );

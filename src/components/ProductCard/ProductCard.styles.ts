@@ -83,3 +83,62 @@ export const OriginalPrice = styled.span`
   color: ${({ theme }) => theme.colors.textSecondary};
   text-decoration: line-through;
 `;
+
+export const ButtonGroup = styled.div`
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.xs};
+`;
+
+export const AddToCartButton = styled.button`
+  padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: white;
+  border: none;
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing.xs};
+  cursor: pointer;
+  transition: all ${({ theme }) => theme.transitions.fast};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primaryDark};
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
+export const ViewProductButton = styled(Link)`
+  padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
+  background-color: transparent;
+  color: ${({ theme }) => theme.colors.primary};
+  border: 2px solid ${({ theme }) => theme.colors.primary};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ${({ theme }) => theme.transitions.fast};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`;

@@ -73,6 +73,14 @@ export const InfoSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.lg};
+  justify-content: space-between;
+  min-height: 500px;
+
+  /* Mobile - Don't force height */
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    min-height: auto;
+    justify-content: flex-start;
+  }
 `;
 
 export const Title = styled.h1`
@@ -132,16 +140,22 @@ export const Tag = styled.span`
 `;
 
 export const AddToCartButton = styled.button`
-  width: 100%;
-  padding: ${({ theme }) => theme.spacing.lg};
+  margin-top: auto;
+  padding: ${({ theme }) => theme.spacing.md}
+    ${({ theme }) => theme.spacing.xxl};
   background: ${({ theme }) => theme.colors.primary};
   color: white;
   border: none;
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
-  font-size: ${({ theme }) => theme.typography.fontSize.xl};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  font-size: ${({ theme }) => theme.typography.fontSize.lg};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
   cursor: pointer;
   transition: background-color ${({ theme }) => theme.transitions.base};
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing.sm};
+  min-width: 250px;
 
   &:hover {
     background: ${({ theme }) => theme.colors.primaryDark};
@@ -150,6 +164,11 @@ export const AddToCartButton = styled.button`
   &:disabled {
     background: ${({ theme }) => theme.colors.border};
     cursor: not-allowed;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 100%;
+    margin-top: ${({ theme }) => theme.spacing.xl};
   }
 `;
 

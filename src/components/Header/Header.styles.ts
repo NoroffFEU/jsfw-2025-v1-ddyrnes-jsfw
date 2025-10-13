@@ -1,11 +1,18 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const HeaderWrapper = styled.header`
+export const HeaderWrapper = styled.header<{ $isVisible: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   background-color: ${({ theme }) => theme.colors.primary};
   color: white;
   padding: ${({ theme }) => theme.spacing.lg} ${({ theme }) => theme.spacing.xl};
-  box-shadow: ${({ theme }) => theme.shadows.md};
+  box-shadow: ${({ theme }) => theme.shadows.lg};
+  transform: translateY(${({ $isVisible }) => ($isVisible ? "0" : "-100%")});
+  transition: transform 0.3s ease-in-out;
 
   /* Tablet */
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
@@ -28,20 +35,54 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Logo = styled(Link)`
-  font-size: ${({ theme }) => theme.typography.fontSize["2xl"]};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.sm};
   color: white;
   text-decoration: none;
 
   &:hover {
-    color: white;
     opacity: 0.9;
   }
+`;
+
+export const LogoBadge = styled.div`
+  background: white;
+  color: ${({ theme }) => theme.colors.primary};
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+  font-size: ${({ theme }) => theme.typography.fontSize.lg};
+  border-radius: ${({ theme }) => theme.borderRadius.md};
+  flex-shrink: 0;
 
   /* Mobile */
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: ${({ theme }) => theme.typography.fontSize.xl};
+    width: 36px;
+    height: 36px;
+    font-size: ${({ theme }) => theme.typography.fontSize.base};
   }
+`;
+
+export const LogoText = styled.div`
+  font-size: ${({ theme }) => theme.typography.fontSize.xl};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+
+  /* Mobile */
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: none;
+  }
+`;
+
+export const LogoFull = styled.span`
+  display: inline;
+`;
+
+export const LogoShort = styled.span`
+  display: none;
 `;
 
 export const Nav = styled.nav`
@@ -56,6 +97,9 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.xs};
   color: white;
   text-decoration: none;
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
@@ -71,6 +115,12 @@ export const NavLink = styled(Link)`
   /* Mobile */
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: ${({ theme }) => theme.spacing.sm};
-    font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  }
+`;
+
+export const NavText = styled.span`
+  /* Mobile - Hide text, show only icons */
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: none;
   }
 `;
