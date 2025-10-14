@@ -4,7 +4,7 @@ An e-commerce application built with React and TypeScript for the JavaScript Fra
 
 Feel free to browse and test the full checkout flow - no account required!
 
-**Live Demo:** [Coming soon]
+**Live Demo:** [https://dd-noroffshop.netlify.app](https://dd-noroffshop.netlify.app)
 
 ## Features
 
