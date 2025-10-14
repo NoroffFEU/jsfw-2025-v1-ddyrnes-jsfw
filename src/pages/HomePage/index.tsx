@@ -30,12 +30,10 @@ function HomePage() {
     loadProducts();
   }, []);
 
-  // Filter products by search query
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Sort products based on selected option
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     switch (sortOption) {
       case "name-asc":

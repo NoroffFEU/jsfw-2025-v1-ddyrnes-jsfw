@@ -6,7 +6,6 @@ import { useCart } from "../../hooks/useCart";
 function CheckoutSuccessPage() {
   const { clearCart } = useCart();
 
-  // Clear cart when this page loads
   useEffect(() => {
     clearCart();
   }, [clearCart]);

@@ -11,12 +11,9 @@ function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Show header when scrolling up or at the top
       if (currentScrollY < lastScrollY || currentScrollY < 10) {
         setIsVisible(true);
-      }
-      // Hide header when scrolling down (and not at the top)
-      else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false);
       }
 

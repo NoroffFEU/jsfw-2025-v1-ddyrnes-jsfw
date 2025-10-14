@@ -1,17 +1,17 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Card = styled(Link)`
+export const Card = styled.div`
   display: flex;
   flex-direction: column;
   background: white;
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   overflow: hidden;
-  text-decoration: none;
   color: ${({ theme }) => theme.colors.text};
   transition: all ${({ theme }) => theme.transitions.base};
   box-shadow: ${({ theme }) => theme.shadows.sm};
+  cursor: pointer;
 
   &:hover {
     box-shadow: ${({ theme }) => theme.shadows.lg};

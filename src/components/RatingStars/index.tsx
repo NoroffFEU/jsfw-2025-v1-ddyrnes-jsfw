@@ -17,15 +17,12 @@ function RatingStars({
   showNumber = true,
   reviewCount,
 }: IRatingStars) {
-  // If no rating, show "No reviews yet"
   if (rating === 0) {
     return <S.NoReviews>No reviews yet</S.NoReviews>;
   }
 
-  // Round to nearest 0.5
   const roundedRating = Math.round(rating * 2) / 2;
 
-  // Calculate stars
   const fullStars = Math.floor(roundedRating);
   const hasHalfStar = roundedRating % 1 !== 0;
   const emptyStars = maxStars - fullStars - (hasHalfStar ? 1 : 0);

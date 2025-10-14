@@ -24,7 +24,6 @@ function ContactPage() {
     console.log("Form submitted with data:", data);
     setIsSubmitted(true);
 
-    // Reset form and success message after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       reset();

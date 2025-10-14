@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import toast from "react-hot-toast";
 import * as S from "./ProductCard.styles";
@@ -12,21 +13,25 @@ interface IProductCard {
 }
 
 function ProductCard({ product }: IProductCard) {
+  const navigate = useNavigate();
   const { addToCart } = useCart();
   const showDiscount = hasDiscount(product.price, product.discountedPrice);
   const discountPercentage = showDiscount
     ? calculateDiscountPercentage(product.price, product.discountedPrice)
     : 0;
 
+  const handleCardClick = () => {
+    navigate(`/product/${product.id}`);
+  };
+
   const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent card navigation
-    e.stopPropagation(); // Stop event bubbling
+    e.stopPropagation();
     addToCart(product);
     toast.success(`${product.title} added to cart!`);
   };
 
   return (
-    <S.Card to={`/product/${product.id}`}>
+    <S.Card onClick={handleCardClick}>
       <S.ImageWrapper>
         <S.Image
           src={product.image.url}
